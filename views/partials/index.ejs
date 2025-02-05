@@ -1,0 +1,42 @@
+<%- include("header.ejs") %>
+<style>
+    .hero-section {
+        background-image: url("/images/BG.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 100px 0;
+    }
+    .hero-head{
+        color: #0A2647;
+    }
+    .bg{
+        background-color: #0A2647;
+    }
+</style>
+<div class="hero-section">
+    <div class="container">
+        <!-- border py-5 rounded-4 bg-light -->
+        <!-- style="color: #64B5F6 !important;" -->
+        <h3 class="display-5 my-4 fw-bold hero-head" >Welcome to Kin's Studio<br>Exploring the Wonders of Physics!</h3>
+        <p class="lead mb-4 text-black px-5" >Explore captivating articles that decode the cosmos, spark curiosity, and fuel your passion for discovery. Join a vibrant community where science meets inspiration, and every insight brings you closer to understanding the mysteries of existence.</p>
+        <!-- style="color: white !important; -->
+        <form id="search" class="my-5 p" action="/search" method="post">
+            <input name="searchTitle" class="form-group search-bar" type="search" placeholder="Search for Articles" aria-label="Search">
+            <button class="btn search-btn" type="submit">Search</button>
+        </form>
+
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mt-4">
+            <a type="button" class="btn btn-custom" href="/law">Laws of Physics</a>
+            <a type="button" class="btn btn-lightblue" href="/compose">Create your Article</a>
+            <a type="button" class="btn btn-custom" href="/exps">View Experiments</a>
+            <a type="button" class="btn btn-lightblue" href="/authors">About Authors</a>
+            <a type="button" class="btn btn-custom" href="/law">News</a>
+            <a type="button" class="btn btn-lightblue" href="/law">Video lecture</a>
+            <a type="button" class="btn btn-custom" href="/formula">Formula</a>
+
+        </div>
+    </div>
+</div>
+<%- include("footer.ejs") %>

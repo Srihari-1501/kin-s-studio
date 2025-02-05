@@ -1,0 +1,84 @@
+<%- include("partials/header.ejs") %>
+
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: #2a4d6c;
+  font-size: 1.8rem;
+  margin: 10px 0;
+}
+
+.art-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.law-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  width: 80%;
+}
+
+.law {
+  background-color: #e3f2fd; 
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.law:hover {
+  transform: translateY(-10px);
+}
+
+p {
+  color: #1f3a56;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+  .law-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .law-container {
+    grid-template-columns: 1fr;
+  }
+}
+.phys-head{
+  background-color: white;
+  color:#1f3a56;
+}
+
+</style>
+<h1 class="art-container border container my-5 phys-head rounded-4">Physicist</h1>
+<div class="art-container ">
+    <div class="law-container text-center rounded-4" id="law-container">
+      <% phys.forEach(phys => { %>
+        <div class="law">
+          <div class="bg-light border rounded-4">
+            <h2><%= phys.name %></h2>
+            <br>
+            <img width="250" height="250" src="<%= phys.image %>" class="mb-5 rounded-4" alt="">
+          </div>
+          
+          <p><br><%= phys.content %></p>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+<%- include("partials/footer.ejs") %>

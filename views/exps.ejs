@@ -1,0 +1,148 @@
+<%- include("partials/header.ejs") %>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+  }
+
+  
+
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+    background-color: white;
+    color: gray;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .article-container {
+    margin-top: 20px;
+  }
+
+  .article {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    border-left: 5px solid #007bff;
+  }
+
+  .article h2 {
+    margin: 0;
+    color: #007bff;
+  }
+
+  .article p {
+    color: #444;
+    line-height: 1.5;
+  }
+
+  .art-container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+</style>
+
+<body>
+  <!-- container py-3 bg-white rounded-4 my-5 border -->
+  <h1 class=" art-container my-5 " style="color: #0A2647">Experiments</h1>
+  <div class="art-container">
+    <label for="tags">Enter Tags (comma-separated):</label>
+    <input type="text" id="tags" placeholder="e.g., technology, fitness" />
+    <button onclick="filterArticles()">Filter</button>
+
+    <div class="article-container" id="article-container">
+      <% articles.forEach(article => { %>
+        <div class="article">
+          <h2><%= article.title %></h2>
+          <p><strong>Description:</strong> <%= article.description %></p>
+          <p><strong>Content:</strong> <%= article.content %></p>
+          <p><strong>Tags:</strong> <%= article.tags.join(", ") %></p>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <script>
+    const articles = JSON.stringify(articles);
+
+    function displayArticles(filteredArticles) {
+      const container = document.getElementById("article-container");
+      container.innerHTML = "";
+
+      if (filteredArticles.length === 0) {
+        container.innerHTML = "<p>No articles found!</p>";
+        return;
+      }
+
+      filteredArticles.forEach(article => {
+        const articleDiv = document.createElement("div");
+        articleDiv.className = "article";
+        articleDiv.innerHTML = `
+          <h2>${article.title}</h2>
+          <p><strong>Description:</strong> ${article.description}</p>
+          <p><strong>Content:</strong> ${article.content}</p>
+          <p><strong>Tags:</strong> ${article.tags.join(", ")}</p>
+        `;
+        container.appendChild(articleDiv);
+      });
+    }
+    displayArticles(articles);
+
+    function filterArticles() {
+      const tagInput = document.getElementById("tags").value.trim();
+      if (!tagInput) {
+        displayArticles(articles);
+        return;
+      }
+
+      const filterTags = tagInput.split(",").map(tag => tag.trim().toLowerCase());
+
+      const filteredArticles = articles.filter(article =>
+        filterTags.some(tag => article.tags.map(t => t.toLowerCase()).includes(tag))
+      );
+
+      displayArticles(filteredArticles);
+    }
+  </script>
+</body>
+
+<%- include("partials/footer.ejs") %>

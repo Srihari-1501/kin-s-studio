@@ -1,0 +1,84 @@
+<%- include("partials/header.ejs") %>
+
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: #2a4d6c;
+  font-size: 1.8rem;
+  margin: 10px 0;
+}
+
+.art-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.law-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  width: 80%;
+}
+
+.law {
+  background-color: #e3f2fd; 
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.law:hover {
+  transform: translateY(-10px);
+}
+
+p {
+  color: #1f3a56;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+  .law-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .law-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.law-head{
+  background-color: #1f3a56;
+  color: white;
+}
+.bg-title{
+  background-color: #1f3a56;
+  color: white;
+}
+
+</style>
+<h1 class="art-container border container my-5 law-head rounded-4">Laws</h1>
+<div class="art-container">
+    <div class="law-container" id="law-container">
+      <% laws.forEach(law => { %>
+        <div class="law">
+          <h2 class="border bg-title rounded-3 p-2"><%= law.title %></h2>
+          <p class="border bg-white rounded-3 p-2"><strong>Content:</strong> <%= law.content %></p>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+<%- include("partials/footer.ejs") %>

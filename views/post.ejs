@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+
+<div>
+    <br>
+    <% postObj.forEach((post)=>{ %>
+        <div class="container border border-def pt-1">
+            <h3 class=" border-def"><b class=" border-def"> <%= post.title %></b></h3>
+            <h5 class=" border-def"><i class=" border-def"><%= post.Description %></i></h5>
+        </div>   
+        <br>  
+    <% }) %>
+</div>
+<%- include("partials/footer.ejs") %>
+
+     
+
+
+  

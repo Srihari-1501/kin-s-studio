@@ -1,0 +1,49 @@
+<%- include("partials/header.ejs") %>
+
+<style>
+    .contain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: #e3f2fd;
+        padding: 20px;
+        min-height: 100vh;
+    }
+    .professor-card {
+        background-color: #bbdefb;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px;
+        text-align: center;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+    .professor-card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+</style>
+
+<div class="contain">
+    <h2 style="color: #0d47a1; width: 100%; text-align: center;">Meet Our Professors</h2>
+    <div class="professor-card">
+        <img src="/images/Aram mam.png" alt="Professor 1">
+        <h3>Aram</h3>
+        <p>The knowledge you’ve shared has not only equipped me with practical tools but has also empowered me to take control of my future. You’ve instilled in me a mindset that will continue to guide me for years to come. Your dedication to teaching us not just about numbers, but about financial freedom, has truly made an impact. I will always be grateful for the clarity and confidence you've given me in navigating the complexities of personal life.</p>
+    </div>
+    <div class="professor-card">
+        <img src="/images/Kavitha mam.png" alt="Professor 2">
+        <h3>Kavitha</h3>
+        <p>Honoring Our Entrepreneur: A Thanksgiving Tribute to Dr. B. Kavitha Karthikeyan                                        I cannot find the right words to express just how much your support has meant to me during the toughest times of my life mam. When I felt lost and overwhelmed, you were there, offering guidance, understanding, and a steady hand. Your belief in me gave me the strength to keep going, and your compassion helped me heal when I thought I couldn’t. Without you this is IMPOSSIBLE mam!</p>
+    </div>
+    <div class="professor-card">
+        <img src="/images/Nirmala mam.png" alt="Professor 3">
+        <h3>Nirmala</h3>
+        <p>You’ve been more than just a teacher; you’ve been a true mentor and a lifeline. Your kindness, patience, and unwavering support have made all the difference, and I will forever be grateful for your lessons you provided when I needed it most mam. Thank you for helping me not only overcome challenges but also for teaching me the power of resilience and inner strength. I will carry the lessons you’ve given me throughout my life.</p>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %>

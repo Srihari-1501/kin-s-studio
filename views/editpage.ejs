@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %>
+
+<div>
+  <br>
+    <form id="editpage" action="/editpage" method="POST">
+      <div class="container">
+        <div class="form-group">
+            <label for="editedTitle">Title</label>
+            <input type="text" class="form-control" name="editedTitle" value="<%= edTitle %>" autofocus required>
+        </div>
+
+        <div class="form-group">
+            <label for="editedDecs">Description</label>
+            <input type="text" class="form-control" name="editedDecs" value="<%= edDesc %>" autofocus required>
+        </div>
+      
+          <div class="form-group">
+            <label for="editedContent">Post</label>
+            <textarea class="form-control content-box" name="editedContent" rows="3" autofocus required><%= edCont %></textarea>
+            
+          </div>
+          <br>
+          <button type="submit" class="btn btn-default btn-outline-success">Submit</button>
+      </div>
+    </form>
+       
+</div>
+<%- include("partials/footer.ejs") %>   
